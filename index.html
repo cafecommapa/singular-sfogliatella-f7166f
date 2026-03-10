@@ -1,188 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Café com Mapa — Voltamos em breve</title>
-  <meta name="description" content="Estamos preparando uma nova fase do Café com Mapa. Voltamos em breve." />
-  <style>
-    :root {
-      --bg: #efe0c7;
-      --bg-2: #e4c79f;
-      --card: rgba(247, 238, 225, 0.88);
-      --text: #4b2e1d;
-      --muted: #7d5d45;
-      --accent: #6f472d;
-      --accent-soft: #9a7858;
-      --line: rgba(75, 46, 29, 0.12);
-      --shadow: 0 24px 70px rgba(74, 47, 30, 0.16);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café com Mapa</title>
 
-    * { box-sizing: border-box; }
+<style>
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(111,71,45,0.10), transparent 26%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-    }
+body{
+margin:0;
+font-family:Georgia, serif;
+background:#f5efe7;
+color:#3f2b1f;
+}
 
-    body {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
+.container{
+max-width:420px;
+margin:auto;
+background:#fcf8f3;
+}
 
-    .wrap {
-      width: min(980px, 100%);
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.5);
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+border-bottom:1px solid #e6ddd2;
+}
 
-    .left {
-      padding: 56px 46px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.1));
-    }
+.logo{
+font-size:22px;
+font-weight:bold;
+}
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      align-self: flex-start;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid var(--line);
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
+.hero{
+position:relative;
+height:320px;
+background:url('https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=1200&q=80');
+background-size:cover;
+background-position:center;
+color:white;
+display:flex;
+align-items:flex-end;
+}
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 7px rgba(111,71,45,0.10);
-    }
+.hero-text{
+padding:20px;
+background:linear-gradient(transparent,rgba(0,0,0,0.7));
+width:100%;
+}
 
-    h1 {
-      margin: 0;
-      font-size: clamp(2.4rem, 5vw, 4.6rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      max-width: 9ch;
-    }
+.hero h1{
+margin:0;
+font-size:28px;
+}
 
-    p {
-      margin: 20px 0 0;
-      font-size: 1.06rem;
-      line-height: 1.75;
-      color: var(--muted);
-      max-width: 44ch;
-    }
+.hero p{
+margin:5px 0 15px;
+}
 
-    .mini {
-      margin-top: 28px;
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
+.button{
+background:white;
+color:#6f4a33;
+padding:10px 14px;
+border-radius:8px;
+display:inline-block;
+font-size:14px;
+}
 
-    .right {
-      padding: 38px;
-      display: grid;
-      place-items: center;
-      position: relative;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.35), transparent 35%),
-        linear-gradient(180deg, rgba(111,71,45,0.05), rgba(255,255,255,0.12));
-    }
+.section{
+padding:15px;
+}
 
-    .logo-card {
-      width: min(100%, 420px);
-      background: rgba(255,248,238,0.92);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 18px;
-      box-shadow: 0 18px 40px rgba(75, 46, 29, 0.10);
-      text-align: center;
-    }
+.section h2{
+font-size:20px;
+margin-bottom:10px;
+}
 
-    .logo-card img {
-      width: 100%;
-      display: block;
-      border-radius: 20px;
-      object-fit: cover;
-      background: #ead3b0;
-    }
+.map{
+background:#e8d5bc;
+height:200px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
-    .logo-note {
-      margin-top: 12px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
+.cards{
+display:flex;
+gap:10px;
+overflow-x:auto;
+}
 
-    .curve {
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 1px solid rgba(111,71,45,0.12);
-      right: -80px;
-      top: -80px;
-    }
+.card{
+min-width:160px;
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
 
-    @media (max-width: 860px) {
-      .wrap {
-        grid-template-columns: 1fr;
-      }
-      .left {
-        padding: 40px 28px 22px;
-      }
-      .right {
-        padding: 20px 28px 34px;
-      }
-    }
-  </style>
+.card img{
+width:100%;
+height:100px;
+object-fit:cover;
+}
+
+.card p{
+padding:10px;
+font-size:14px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.cat{
+height:120px;
+border-radius:10px;
+color:white;
+display:flex;
+align-items:flex-end;
+padding:10px;
+background-size:cover;
+}
+
+footer{
+text-align:center;
+padding:20px;
+font-size:13px;
+color:#777;
+}
+
+</style>
 </head>
-<body>
-  <main class="wrap">
-    <section class="left">
-      <div class="badge"><span class="dot"></span> Atualização temporária</div>
-      <h1>Voltamos em breve.</h1>
-      <p>
-        O <strong>Café com Mapa</strong> está passando por uma atualização de servidores para voltar com uma experiência mais rápida, estável e ainda mais inspiradora.
-      </p>
-      <p>
-        Enquanto isso, estamos preparando uma nova fase do blog — com cara nova, mais leveza e mais histórias para descobrir.
-      </p>
-      <div class="mini">Nos vemos já já ☕</div>
-    </section>
 
-    <section class="right">
-      <div class="curve"></div>
-      <div class="logo-card">
-        <img src="Minha imagem do ChatGPT.jpg" alt="Logo do Café com Mapa" />
-        <div class="logo-note">Cores e identidade preservadas para a nova fase.</div>
-      </div>
-    </section>
-  </main>
+<body>
+
+<div class="container">
+
+<header>
+<div class="logo">☕ Café com Mapa</div>
+<div>☰</div>
+</header>
+
+<div class="hero">
+<div class="hero-text">
+<h1>Paris no inverno</h1>
+<p>Cafés, neve e charme nas ruas da cidade luz</p>
+<span class="button">Leia mais</span>
+</div>
+</div>
+
+<div class="section">
+<h2>Mapa interativo</h2>
+<div class="map">
+Mapa do mundo (pins em Paris, Lisboa, Madri e Roma)
+</div>
+</div>
+
+<div class="section">
+<h2>Últimas matérias</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b">
+<p>Explorando Lisboa</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5">
+<p>Um fim de semana em Roma</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
+<p>Rota dos cafés em Buenos Aires</p>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>Próximas rotas</h2>
+
+<div class="grid">
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')">
+Destinos
+</div>
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')">
+Roteiros
+</div>
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085')">
+Cafés
+</div>
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4')">
+Histórias
+</div>
+
+</div>
+</div>
+
+<footer>
+© Café com Mapa
+</footer>
+
+</div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
